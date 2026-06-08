@@ -293,8 +293,11 @@ select:focus { border-color:#1565c0; background:#fff; }
 // ============================================================
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLAraCxJ36BLxGacXw7vQX8QpOAGgT7w0rd9LgciLZVpjJd_kUsYfZoSQ6o2UWMwbvsA/exec";
 const ALLOWED_RADIUS_METERS = 200;
-const WORK_LAT              = 13.7563;
-const WORK_LNG              = 100.5018;
+// พิกัดแต่ละสาขา - เพิ่มได้เรื่อยๆ
+const BRANCHES = {  
+"สาขา สุขุมวิท22": { lat: 13.72654, lng: 100.56532 },
+"สาขา ดินแดง": { lat: 13.77144, lng: 100.56047 },
+"สาขา ยานนาวา": { lat: 13.68656, lng: 100.52887 },};
 const PHOTO_MAX_WIDTH       = 640;
 const PHOTO_QUALITY         = 0.75;
 // ============================================================
@@ -447,7 +450,12 @@ function startGPS() {
     pos => {
       gpsLat=pos.coords.latitude; gpsLng=pos.coords.longitude;
       gpsAccuracy=Math.round(pos.coords.accuracy);
-      const dist=Math.round(getDistance(gpsLat,gpsLng,WORK_LAT,WORK_LNG));
+      const branch = currentUser ? currentUser.branch : null;
+      const coords = branch && BRANCHES[branch] ? BRANCHES[branch] : null;
+
+      if (!coords) { setGPSFail("ไม่พบพิกัดสาขานี้ กรุณาติดต่อ HR"); return; }
+
+      const dist = Math.round(getDistance(gpsLat, gpsLng, coords.lat, coords.lng));
       dist<=ALLOWED_RADIUS_METERS
         ? setGPSOK(`อยู่ในพื้นที่ (ห่าง ${dist} ม.)`)
         : setGPSFail(`อยู่นอกพื้นที่ — ห่าง ${dist} ม.`);
