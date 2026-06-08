@@ -167,7 +167,7 @@ select:focus { border-color:#1565c0; background:#fff; }
     <div class="logo"><h1>ETRAN</h1><p>กรุณาเข้าสู่ระบบ</p></div>
     <div class="error-box" id="loginError"></div>
     <div class="field">
-      <label>Username (เบอร์โทรศัพท์)</label>
+      <label>Username</label>
       <input type="text" id="inputUser" placeholder="username" maxlength="50">
     </div>
     <div class="field">
@@ -204,13 +204,13 @@ select:focus { border-color:#1565c0; background:#fff; }
 
     <!-- จำนวนบิล -->
     <div class="field">
-      <label>จำนวนบิล</label>
+      <label>จำนวนบิล <span style="font-size:11px; color:#e53935; font-weight:400;">(กรอกเฉพาะตอนออกงาน)</span></label>
       <input type="number" id="billCount" placeholder="0" min="0">
     </div>
 
     <!-- OT -->
     <div class="ot-section">
-      <div class="ot-title">ข้อมูล OT (ถ้ามี)</div>
+      <div class="ot-title">ข้อมูล OT (ถ้ามี) <span style="font-size:11px; color:#e53935; font-weight:400;">(กรอกเฉพาะตอนออกงาน)</span></div>
       <div class="ot-row">
         <div>
           <label style="font-size:12px;">จำนวนบิล OT</label>
@@ -295,10 +295,10 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLAraCxJ36BLxG
 const ALLOWED_RADIUS_METERS = 800;
 // พิกัดแต่ละสาขา - เพิ่มได้เรื่อยๆ
 const BRANCHES = {  
-"สาขา สุขุมวิท22": { lat: 13.72654, lng: 100.56532 },
-"สาขา ดินแดง": { lat: 13.77144, lng: 100.56047 },
-"สาขา ยานนาวา": { lat: 13.68656, lng: 100.52887 },
-"สาขา อารีย์": { lat: 13.77595, lng: 100.54121 },};
+"สุขุมวิท22": { lat: 13.72654, lng: 100.56532 },
+"ดินแดง": { lat: 13.77144, lng: 100.56047 },
+"ยานนาวา": { lat: 13.68656, lng: 100.52887 },
+"อารีย์": { lat: 13.77595, lng: 100.54121 },};
 const PHOTO_MAX_WIDTH       = 640;
 const PHOTO_QUALITY         = 0.75;
 // ============================================================
