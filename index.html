@@ -230,7 +230,7 @@ select:focus { border-color:#1565c0; background:#fff; }
 
         <!-- slot 0: หน้าตัวเอง -->
         <div class="photo-slot" id="slot0" onclick="openCam(0)">
-          <div class="slot-label">🙂 รูปหน้าตัวเอง</div>
+          <div class="slot-label">🙂 รูปถ่ายเห็นหน้า</div>
           <div class="slot-icon" id="icon0">📷</div>
           <img class="slot-preview" id="prev0" alt="รูปหน้า">
           <div class="slot-ok" id="ok0">✓</div>
@@ -238,7 +238,7 @@ select:focus { border-color:#1565c0; background:#fff; }
 
         <!-- slot 1: รูปรถ -->
         <div class="photo-slot" id="slot1" onclick="openCam(1)">
-          <div class="slot-label">🚗 รูปรถ</div>
+          <div class="slot-label">🚗 รูปรถเห็นทะเบียน</div>
           <div class="slot-icon" id="icon1">📷</div>
           <img class="slot-preview" id="prev1" alt="รูปรถ">
           <div class="slot-ok" id="ok1">✓</div>
@@ -299,8 +299,8 @@ const BRANCHES = {
 "ดินแดง": { lat: 13.77144, lng: 100.56047 },
 "ยานนาวา": { lat: 13.68656, lng: 100.52887 },
 "อารีย์": { lat: 13.77595, lng: 100.54121 },};
-const PHOTO_MAX_WIDTH       = 640;
-const PHOTO_QUALITY         = 0.75;
+const PHOTO_MAX_WIDTH       = 400;
+const PHOTO_QUALITY         = 0.6;
 // ============================================================
 
 // ---- session (sessionStorage = หมดเมื่อปิด browser tab) ----
@@ -389,7 +389,7 @@ function selectType(t) {
 }
 
 // ---- CAMERA ----
-const SLOT_LABELS = ["รูปหน้าตัวเอง","รูปรถ","เรือนไมล์รถ"];
+const SLOT_LABELS = ["รูปถ่ายเห็นหน้า","รูปรถเห็นทะเบียน","เรือนไมล์รถ"];
 const SLOT_FACING = ["user","environment","environment"]; // หน้า=front, รถ+ไมล์=หลัง
 let photos       = [null, null, null];
 let activeCamSlot = -1;
