@@ -494,7 +494,7 @@ async function submitForm() {
   if (!selectedType)        { document.getElementById("errType").style.display="block";  valid=false; }
   if (!photos.every(p=>p))  { document.getElementById("errPhoto").style.display="block"; valid=false; }
   if (!valid) return;
-
+  console.log("phone value:", currentUser.phone);
   const btn = document.getElementById("submitBtn");
   btn.disabled=true; btn.textContent="กำลังบันทึก...";
 
