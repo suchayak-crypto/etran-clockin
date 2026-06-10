@@ -236,20 +236,12 @@ select:focus { border-color:#1565c0; background:#fff; }
           <div class="slot-ok" id="ok0">✓</div>
         </div>
 
-        <!-- slot 1: รูปรถ -->
-        <div class="photo-slot" id="slot1" onclick="openCam(1)">
-          <div class="slot-label">🚗 รูปรถเห็นทะเบียน</div>
-          <div class="slot-icon" id="icon1">📷</div>
-          <img class="slot-preview" id="prev1" alt="รูปรถ">
-          <div class="slot-ok" id="ok1">✓</div>
-        </div>
-
         <!-- slot 2: เรือนไมล์ -->
-        <div class="photo-slot" id="slot2" onclick="openCam(2)">
+        <div class="photo-slot" id="slot1" onclick="openCam(1)">
           <div class="slot-label">🔢 เรือนไมล์รถ</div>
-          <div class="slot-icon" id="icon2">📷</div>
-          <img class="slot-preview" id="prev2" alt="เรือนไมล์">
-          <div class="slot-ok" id="ok2">✓</div>
+          <div class="slot-icon" id="icon1">📷</div>
+          <img class="slot-preview" id="prev1" alt="เรือนไมล์">
+          <div class="slot-ok" id="ok1">✓</div>
         </div>
 
       </div>
@@ -389,9 +381,9 @@ function selectType(t) {
 }
 
 // ---- CAMERA ----
-const SLOT_LABELS = ["รูปถ่ายเห็นหน้า","รูปรถเห็นทะเบียน","เรือนไมล์รถ"];
-const SLOT_FACING = ["user","environment","environment"]; // หน้า=front, รถ+ไมล์=หลัง
-let photos       = [null, null, null];
+const SLOT_LABELS = ["รูปถ่ายเห็นหน้า","เรือนไมล์รถ"];
+const SLOT_FACING = ["user","environment"]; // หน้า=front, รถ+ไมล์=หลัง
+let photos       = [null, null];
 let activeCamSlot = -1;
 let camStream    = null;
 
@@ -511,8 +503,8 @@ async function submitForm() {
     otHours   : document.getElementById("otHours").value   || 0,
     lat       : gpsLat, lng: gpsLng, accuracy: gpsAccuracy,
     photoFace : photos[0],
-    photoCar  : photos[1],
-    photoMile : photos[2]
+    photoCar  : null,
+    photoMile : photos[1]
   };
 
   try {
