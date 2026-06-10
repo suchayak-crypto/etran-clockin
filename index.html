@@ -185,6 +185,7 @@ select:focus { border-color:#1565c0; background:#fff; }
       <div class="user-bar-info">
         <strong id="barName">—</strong>
         <span id="barBranch">—</span>
+        <span id="barPlate" style="color:#666; font-size:13px; display:block; margin-top:2px;">—</span>
       </div>
       <button class="logout-btn" onclick="doLogout()">ออกจากระบบ</button>
     </div>
@@ -341,6 +342,7 @@ function showForm() {
   document.getElementById("formView").style.display  = "block";
   document.getElementById("barName").textContent     = currentUser.name;
   document.getElementById("barBranch").textContent   = "สาขา: " + currentUser.branch;
+  document.getElementById("barPlate").textContent  = "ทะเบียน: " + (currentUser.plate || "-");
   startGPS();
   updateClock();
 }
