@@ -246,7 +246,7 @@ select:focus { border-color:#1565c0; background:#fff; }
         </div>
 
       </div>
-      <div class="error-msg" id="errPhoto" style="margin:8px 14px 10px;">กรุณาถ่ายรูปให้ครบทั้ง 3 รูป</div>
+      <div class="error-msg" id="errPhoto" style="margin:8px 14px 10px;">กรุณาถ่ายรูปให้ครบทั้ง 2 รูป</div>
     </div>
 
     <!-- GPS -->
@@ -533,9 +533,9 @@ function showSuccess(p) {
 }
 
 function resetForm() {
-  photos=[null,null,null]; selectedType=null;
+  photos=[null,null]; selectedType=null;
   gpsOK=false; gpsLat=null; gpsLng=null; gpsAccuracy=null;
-  [0,1,2].forEach(i=>{
+  [0,1].forEach(i=>{
     document.getElementById("icon"+i).style.display="flex";
     document.getElementById("prev"+i).style.display="none";
     document.getElementById("ok"+i).style.display="none";
