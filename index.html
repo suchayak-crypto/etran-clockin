@@ -224,7 +224,7 @@ select:focus { border-color:#1565c0; background:#fff; }
       </div>
     </div>
 
-    <!-- PHOTOS: 3 slots -->
+    <!-- PHOTOS: 2 slots -->
     <div class="photos-section">
       <div class="photos-header">📷 รูปภาพ (บังคับทั้ง 2 รูป) <span class="req">*</span></div>
       <div class="photo-slots">
@@ -237,7 +237,7 @@ select:focus { border-color:#1565c0; background:#fff; }
           <div class="slot-ok" id="ok0">✓</div>
         </div>
 
-        <!-- slot 2: เรือนไมล์ -->
+        <!-- slot 1: เรือนไมล์ -->
         <div class="photo-slot" id="slot1" onclick="openCam(1)">
           <div class="slot-label">🔢 เรือนไมล์รถ</div>
           <div class="slot-icon" id="icon1">📷</div>
@@ -498,6 +498,7 @@ async function submitForm() {
     timestamp : now.toLocaleString("th-TH",{timeZone:"Asia/Bangkok"}),
     name      : currentUser.name,
     branch    : currentUser.branch,
+    plate : currentUser.plate || "",
     phone     : currentUser.phone,
     type      : selectedType==="in" ? "เข้างาน" : "ออกงาน",
     billCount : document.getElementById("billCount").value || 0,
